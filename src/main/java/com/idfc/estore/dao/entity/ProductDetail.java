@@ -31,17 +31,19 @@ public class ProductDetail {
     private String createdBy;
 
     @OneToMany
-    @JoinTable(joinColumns = @JoinColumn(name="PRODUCT_ID")
-            ,inverseJoinColumns = @JoinColumn(name = "VARIANT_ID"))
-    Collection<ProductVariant> productVariant;
+    @JoinTable(joinColumns = @JoinColumn(name = "PRODUCT_ID")
+            , inverseJoinColumns = @JoinColumn(name = "VARIANT_ID"))
+    private Collection<ProductVariant> productVariant;
+
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "PRODUCT_ID"), inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
+    Collection<OrderDetail> order;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public String getProductName() {
         return productName;

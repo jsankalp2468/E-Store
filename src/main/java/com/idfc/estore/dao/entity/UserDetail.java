@@ -2,10 +2,11 @@ package com.idfc.estore.dao.entity;
 
 import javax.validation.constraints.NotNull;
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USER")
 public class UserDetail {
 
     @Id
@@ -37,6 +38,12 @@ public class UserDetail {
     @Column(name = "ROLE")
     @NotNull
     private String role;
+
+
+//order
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "USER_ID"),inverseJoinColumns = @JoinColumn(name = "ORDER_ID"))
+    private Collection<OrderDetail> order;
 
     public Long getId() {
         return id;
