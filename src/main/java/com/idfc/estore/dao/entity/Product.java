@@ -1,4 +1,4 @@
-package com.idfc.estore.entity;
+package com.idfc.estore.dao.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
